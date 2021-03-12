@@ -1,17 +1,12 @@
 import ActorCard from "../../components/actor-card/actor-card";
-import { useEffect, useState, useRef } from "react";
-import getActors from "../../services/actors.service";
 import ReactDOM from 'react-dom';
+import Filters from '../../components/actors-filters/Filters';
+import { useSelector, useDispatch } from 'react-redux';
 
 
 function Actors(props){
-    let [actors, setActors] = useState([]);
-    
-    useEffect(() => {
-        getActors().then(result => {
-            setActors(result.results);
-        });
-    },[]);
+
+    const actors = useSelector(state => state.actors);
 
     function handleSwitchLayouts(){
         let cardElement = document.querySelector('.card');
@@ -48,14 +43,17 @@ function Actors(props){
     
 
     return <>
-    <div className="row mt-3 justify-content-end">
-        <div className="col-md-3 text-right">
-            <button className="btn btn-dark" id="switch-layout" onClick={handleSwitchLayouts}>Switch to row layout</button>
+    <div className="container">
+        <Filters />
+        <div className="row mt-3 justify-content-end">
+            <div className="col-md-3 text-right pt-4">
+                <button className="btn btn-dark" id="switch-layout" onClick={handleSwitchLayouts}>Switch to row layout</button>
+            </div>
+        </div>
+        <div className="row mt-3" id="list">
+                {showActorCards()}
         </div>
     </div>
-        <div className="row mt-3" id="list">
-            {showActorCards()}
-        </div>
     </>
 }
 

@@ -6,8 +6,8 @@ import {
 function ActorCard(props){
 
     return <>
-        <div>
-      <Card className="align-items-center p-3 mr-4 mb-2">
+    <div className="col-md-4">
+      <Card className="align-items-center p-3 mr-2 mb-2">
         <CardImg top width="100%" src={props.image} alt="Actor image" style={{borderRadius: 125 + 'px'}} />
         <CardBody>
             <div>
@@ -40,7 +40,7 @@ function ActorCard(props){
           </div>
         </CardBody>
       </Card>
-    </div>
+      </div>
     </>
 }
 

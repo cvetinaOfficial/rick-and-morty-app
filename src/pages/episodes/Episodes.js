@@ -1,17 +1,11 @@
 import EpisodeCard from "../../components/episode-card/episode-card";
-import { useEffect, useState, useRef } from "react";
-import getEpisodes from "../../services/episodes.service";
 import ReactDOM from 'react-dom';
+import { useSelector } from 'react-redux';
+import Filters from "../../components/episodes-filters/Filters";
 
 
 function Episodes(props){
-    let [episodes, setEpisodes] = useState([]);
-
-    useEffect(() => {
-        getEpisodes().then(result => {
-                setEpisodes(result.results);
-            });
-      }, [])
+    const episodes = useSelector(state => state.episodes);
 
     function handleSwitchLayouts(){
         let cardElement = document.querySelector('.card');
@@ -43,14 +37,17 @@ function Episodes(props){
     }
 
     return <>
-    <div className="row mt-3 justify-content-end">
-        <div className="col-md-3 text-right">
-            <button className="btn btn-dark" id="switch-layout" onClick={handleSwitchLayouts}>Switch to row layout</button>
-        </div>
-    </div>
+    <div className="container">
+        <Filters/>
+        <div className="row mt-3 justify-content-end">
+                <div className="col-md-3 text-right pt-4">
+                    <button className="btn btn-dark" id="switch-layout" onClick={handleSwitchLayouts}>Switch to row layout</button>
+                </div>
+            </div>
         <div className="row mt-3" id="list">
             {showEpisodesCards()}
         </div>
+    </div>
     </>
 }
 

@@ -1,10 +1,10 @@
 import apiClient from '../api/api-client';
 
-export default async function getEpisodes() {
+export default async function getEpisodesFromServer(params) {
 
        return await apiClient.get(
             'api/episode',
-            {},
+            params,
             (res) => {
                 return res.results;
             },

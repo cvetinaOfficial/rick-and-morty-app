@@ -6,8 +6,8 @@ import {
 function EpisodeCard(props){
 
     return <>
-        <div>
-      <Card className="card align-items-center p-3">
+        <div className="col-md-4">
+      <Card className="align-items-center p-3 mr-2 mb-2">
         <CardBody>
             <div>
                 <CardTitle tag="h5" className="d-inline mr-2">Name:</CardTitle>
