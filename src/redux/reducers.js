@@ -23,6 +23,16 @@ function episodes(state = [], action){
     }
 }
 
+function listView(state = false, action){
+    switch(action.type){
+        case actorsActions.SET_LIST_VIEW: {
+            return action.payload;
+        }
+        default: 
+            return state;
+    }
+}
+
 function selectedFilters(state = {
     selectedGender: 'female',
     selectedStatus: 'alive',
@@ -58,4 +68,4 @@ function selectedFilters(state = {
     }
 }
 
-export default combineReducers({actors, selectedFilters, episodes});
+export default combineReducers({actors, selectedFilters, episodes, listView});

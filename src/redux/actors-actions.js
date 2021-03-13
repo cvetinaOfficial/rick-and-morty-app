@@ -22,3 +22,7 @@ export function setSelectedGender(gender){
 export function setSelectedStatus(status){
     return {type: actions.SET_SELECTED_STATUS, payload: status};
 }
+
+export function setListView(value){
+    return {type: actions.SET_LIST_VIEW, payload: value};
+}

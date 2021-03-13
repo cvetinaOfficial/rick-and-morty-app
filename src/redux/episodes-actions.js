@@ -17,3 +17,7 @@ export const getEpisodes = (params) => async function(dispatch){
 export function setSelectedEpisode(episode){
     return {type: actions.SET_SELECTED_EPISODE, payload: episode};
 }
+
+export function setListView(value){
+    return {type: actions.SET_LIST_VIEW, payload: value};
+}

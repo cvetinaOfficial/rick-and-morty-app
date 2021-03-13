@@ -3,7 +3,7 @@ import {
     CardTitle, CardSubtitle, Button
   } from 'reactstrap';
 
-function ActorCard(props){
+function ActorGridCard(props){
 
     return <>
     <div className="col-md-4">
@@ -44,4 +44,4 @@ function ActorCard(props){
     </>
 }
 
-export default ActorCard;
+export default ActorGridCard;
